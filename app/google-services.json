@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "388167878068",
+    "firebase_url": "https://indoor-based-navigation-default-rtdb.firebaseio.com",
+    "project_id": "indoor-based-navigation",
+    "storage_bucket": "indoor-based-navigation.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:388167878068:android:f4ac34d1bf87d98b399ee1",
+        "android_client_info": {
+          "package_name": "com.surya.indoolocationbasednavigation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "388167878068-50hah5gbes13didks4la8al47iucgl1s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD6WdUr8OBFR6C6UD7lKN-9yWuzOEZhDos"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "388167878068-50hah5gbes13didks4la8al47iucgl1s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:388167878068:android:5a84d0200519e276399ee1",
+        "android_client_info": {
+          "package_name": "com.surya.indoorbasednavigation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "388167878068-50hah5gbes13didks4la8al47iucgl1s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD6WdUr8OBFR6C6UD7lKN-9yWuzOEZhDos"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "388167878068-50hah5gbes13didks4la8al47iucgl1s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
