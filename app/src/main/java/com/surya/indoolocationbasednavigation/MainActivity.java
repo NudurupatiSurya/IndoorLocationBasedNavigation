@@ -3,6 +3,7 @@ package com.surya.indoolocationbasednavigation;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -43,16 +44,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Button1 = findViewById(R.id.cat1);
+       /* Button1 = findViewById(R.id.cat1);
         Button2 = findViewById(R.id.cat2);
         Button3 = findViewById(R.id.cat3);
 
         Button1.setOnClickListener(this);
         Button2.setOnClickListener(this);
         Button3.setOnClickListener(this);
-        dummy = findViewById(R.id.dummy);
-        categories = findViewById(R.id.categories);
-        list = (ListView) findViewById(R.id.list);
+        dummy = findViewById(R.id.dummy);*/
+        //categories = findViewById(R.id.categories);
+       // list = (ListView) findViewById(R.id.list);
        scannerView = findViewById(R.id.scanner_view);
         mCodeScanner = new CodeScanner(this, scannerView);
         mCodeScanner.setDecodeCallback(new DecodeCallback() {
@@ -62,9 +63,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     @Override
                     public void run() {
                         StartPos = result.getText();
-                        scannerView.setVisibility(View.GONE);
-                        categories.setVisibility(View.VISIBLE);
-                        displaycategories();
+                        //scannerView.setVisibility(View.GONE);
+                        //categories.setVisibility(View.VISIBLE);
+                        //displaycategories();
+                        Intent intent = new Intent(MainActivity.this,MainActivity2.class);
+                        intent.putExtra("Startposi",StartPos);
+                        startActivity(intent);
                         /*FirebaseDatabase database = FirebaseDatabase.getInstance();
                         DatabaseReference myRef = database.getReference("Message").child("Categories").child("CSE");
 
@@ -190,7 +194,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Toast.makeText(MainActivity.this,""+display,Toast.LENGTH_LONG).show();
                 //in display you'll be having the destinations
                 */
-                get_destinations(var);
+              //  get_destinations(var);
                 //get_distance_directions();
                /* myRef.addValueEventListener(new ValueEventListener() {
                     @Override
@@ -255,26 +259,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
 
                 List_Adapter list_adapter = new List_Adapter(this,dataArrayList);
-                binding.list.setAdapter(list_adapter);
-                binding.list.setClickable(true);
+               /* binding.list.setAdapter(list_adapter);
+                binding.list.setClickable(true);*/
         }
     }
-    public void collect_destinations(String c){
+   /* public void collect_destinations(String c){
         //Toast.makeText(this,c,Toast.LENGTH_LONG).show();
         destinations = c.split(",");
         Toast.makeText(this, destinations[0], Toast.LENGTH_SHORT).show();
-    }
-    public void collect_dist_direct(HashMap<String,String> c){
+    }*/
+    /*public void collect_dist_direct(HashMap<String,String> c){
     String[] d = destinations;
         /*for(int i=0;i<d.length;i++){
             distances[i] = c.get(d[i]).split(",")[0];
             //directions[i] = c.get(destinations[i]).split(",")[1].split(",");
-        }*/
+        }
         distances[0] = c.get("N214").split(",")[0];
         Toast.makeText(this, ""+distances[0], Toast.LENGTH_SHORT).show();
-    }
+    }*/
 
-    public void get_destinations(String var){
+    /*public void get_destinations(String var){
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("Message").child("Categories").child(var);
         myRef.addValueEventListener(new ValueEventListener() {
@@ -296,8 +300,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
 
         });
-    }
-    public void get_distance_directions(){
+    }*/
+    /*public void get_distance_directions(){
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef2 = database.getReference("Message").child("Dist_Direct").child(StartPos);
         myRef2.addValueEventListener(new ValueEventListener() {
@@ -319,7 +323,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }*/
                 //Toast.makeText(MainActivity.this,"",Toast.LENGTH_LONG).show();
                /* HashMap<String, String> dest = (HashMap<String, String>) dataSnapshot.getValue();
-                Toast.makeText(MainActivity.this,""+dest,Toast.LENGTH_LONG).show();*/
+                Toast.makeText(MainActivity.this,""+dest,Toast.LENGTH_LONG).show();
             }
 
             @Override
@@ -328,6 +332,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Toast.makeText(MainActivity.this, "Failed to read value.", Toast.LENGTH_LONG).show();
             }
         });
-    }
+    }*/
 
 }
