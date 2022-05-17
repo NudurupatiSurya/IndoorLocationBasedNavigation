@@ -34,7 +34,7 @@ public class ListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
         l = findViewById(R.id.list);
-        l2 = findViewById(R.id.list2);
+        //l2 = findViewById(R.id.list2);
         //code to set the list view
 
         cat = getIntent().getStringExtra("ButtonText");

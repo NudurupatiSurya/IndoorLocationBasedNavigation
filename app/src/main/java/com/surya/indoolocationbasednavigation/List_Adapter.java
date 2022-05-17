@@ -30,9 +30,9 @@ public class List_Adapter extends ArrayAdapter<Data> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_item,parent,false);
         }
         TextView name_tv = convertView.findViewById(R.id.list_item_tv_name);
-        TextView dist_tv = convertView.findViewById(R.id.list_item_tv_dist);
+       // TextView dist_tv = convertView.findViewById(R.id.list_item_tv_dist);
         name_tv.setText(data.name);
-        dist_tv.setText(data.distance);
+       // dist_tv.setText(data.distance);
 
         return super.getView(position, convertView, parent);
     }
