@@ -71,6 +71,7 @@ public class ListActivity extends AppCompatActivity {
                 String[] directions = new String[10];
                 String[] distance = new String[a.length];
                 for(int i=0;i<Destinations.length;i++){
+
                     distance[i] = snapshot.child("Dist_Direct").child(startpos).child(a[i]).child("distance").getValue(String.class);
                 }
                 Toast.makeText(ListActivity.this,""+distance.length,Toast.LENGTH_SHORT).show();

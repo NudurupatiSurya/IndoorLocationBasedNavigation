@@ -1,11 +1,14 @@
 package com.surya.indoolocationbasednavigation;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
+import android.widget.GridLayout;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -18,7 +21,7 @@ import java.util.Map;
 
 public class MainActivity2 extends AppCompatActivity implements View.OnClickListener {
 Button B1,B2,B3;
-
+GridLayout categories, error_message;
     String startpos,cat1,cat2,cat3;
 
     @Override
@@ -32,8 +35,51 @@ Button B1,B2,B3;
         B1.setOnClickListener(this);
         B2.setOnClickListener(this);
         B3.setOnClickListener(this);
+        categories = findViewById(R.id.categories);
+        error_message = findViewById(R.id.error_message);
+        check_QRcode();
+    }
+    public void check_QRcode(){
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("Message");
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String[] registered_codes = snapshot.child("Registered_Codes").getValue(String.class).split(",");
+                int len = registered_codes.length;
+                boolean code_exists = false;
+                for(int i=0;i<len;i++){
+                    if(startpos.equals(registered_codes[i])){
+                        code_exists = true;
+                    }
+                }
+                if(code_exists == true){
+                    Display_Categories();
+                }
+                else{
+                    display_error();
+                }
+            }
 
-        Display_Categories();
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+    }
+    public void display_error(){
+        categories.setVisibility(View.GONE);
+        error_message.setVisibility(View.VISIBLE);
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent first_intent = new Intent(MainActivity2.this,MainActivity.class);
+                startActivity(first_intent);
+            }
+        },5000);
+
     }
     public void Display_Categories(){
         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -46,7 +92,6 @@ Button B1,B2,B3;
                 Map<String, Object> Categories = (Map<String, Object>) dataSnapshot.getValue();
 
                 String[] key = Categories.keySet().toArray(new String[Categories.keySet().size()]);
-
                 B1.setText(key[0]);
                 B2.setText(key[1]);
                 B3.setText(key[2]);
