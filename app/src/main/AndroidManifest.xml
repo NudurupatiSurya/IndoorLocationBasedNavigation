@@ -15,16 +15,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.IndooLocationBasedNavigation">
         <activity
-            android:name=".Navigation_Screen"
+            android:name="com.surya.indoolocationbasednavigation.Navigation_Screen"
             android:exported="false" />
         <activity
-            android:name=".ListActivity"
+            android:name="com.surya.indoolocationbasednavigation.ListActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity2"
+            android:name="com.surya.indoolocationbasednavigation.MainActivity2"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name="com.surya.indoolocationbasednavigation.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

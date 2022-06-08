@@ -2,7 +2,6 @@ package com.surya.indoolocationbasednavigation;
 
 import android.content.Context;
 import android.content.res.Configuration;
-import android.graphics.drawable.GradientDrawable;
 import android.hardware.Camera;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;

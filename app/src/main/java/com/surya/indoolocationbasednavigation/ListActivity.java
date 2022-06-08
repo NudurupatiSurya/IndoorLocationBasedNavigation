@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -17,8 +16,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
-import java.util.Stack;
 
 public class ListActivity extends AppCompatActivity {
     ListView l,l2;
@@ -34,16 +31,12 @@ public class ListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
         l = findViewById(R.id.list);
-        //l2 = findViewById(R.id.list2);
-        //code to set the list view
+
 
         cat = getIntent().getStringExtra("ButtonText");
         startpos = getIntent().getStringExtra("startpos");
         Destinations = get_destinations();
-        //Distance = get_distance();
-       /*ArrayAdapter<String> arr;
-        arr = new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, Destinations);
-        l.setAdapter(arr);*/
+
 
     }
     public String[] get_destinations(){
@@ -73,7 +66,7 @@ public class ListActivity extends AppCompatActivity {
                     a[i] = va[i];
                 }
                 Destinations = a;
-                //Toast.makeText(ListActivity.this,""+a.length,Toast.LENGTH_SHORT).show();
+
 
                 String[] directions = new String[10];
                 String[] distance = new String[a.length];
@@ -81,8 +74,7 @@ public class ListActivity extends AppCompatActivity {
                     distance[i] = snapshot.child("Dist_Direct").child(startpos).child(a[i]).child("distance").getValue(String.class);
                 }
                 Toast.makeText(ListActivity.this,""+distance.length,Toast.LENGTH_SHORT).show();
-               /* arr2 = new ArrayAdapter<String>(ListActivity.this, R.layout.support_simple_spinner_dropdown_item, distance);
-                l2.setAdapter(arr2);*/
+
                 arr = new ArrayAdapter<String>(ListActivity.this, R.layout.support_simple_spinner_dropdown_item, a);
                 l.setAdapter(arr);
                 l.setOnItemClickListener(new AdapterView.OnItemClickListener() {

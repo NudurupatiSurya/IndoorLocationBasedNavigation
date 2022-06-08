@@ -5,15 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ListActivity">
-   <!-- <ListView
-        android:layout_row="0"
-        android:layout_column="1"
-        android:id="@+id/list2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
 
-        ></ListView>-->
     <ListView
         android:id="@+id/list"
         android:layout_row="0"
@@ -21,11 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         >
-      <!--  <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/list2"
-            android:gravity="right"></TextView>-->
+
     </ListView>
 
 </GridLayout>
